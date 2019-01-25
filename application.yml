@@ -1,0 +1,16 @@
+logging:
+  file: /applogs/iot-platform/${spring.application.name}.log
+  level:
+    org: INFO
+    com: INFO
+    com.thingsmatrix: DEBUG
+    root: INFO
+  register-shutdown-hook: false
+
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/

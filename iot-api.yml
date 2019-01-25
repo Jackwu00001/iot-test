@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+spring:
+  redis:
+    host: redis
+    port: 6379
+    pool:
+      max-active: 1024 #连接实例的最大数目
+      max-wait: 10000  #控制一个pool最多有多少个状态为idle
+      max-idle: 200    #等待可用连接的最大时间，单位毫秒
+    timeout: 5000
+
+tokenexptime: 1800  # token过期时间(秒)
+checkToken: false    #是否需要token校验
+
+attprotocol:
+  closeConnUrl: http://localhost:7701/att/colseConnection

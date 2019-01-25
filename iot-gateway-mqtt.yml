@@ -1,0 +1,25 @@
+spring:
+  mqtt:
+    username: admin
+    password: admin
+    host: tcp://mqtt-broker:1883
+    clientid: clientId
+    topics:
+      reg: /reg
+      log: /report
+    timeout: 3000
+    keepalive: 5000
+    autoReconnect: true
+  rabbitmq:
+    addresses: rabbitmq:5672
+    username: test
+    password: test
+    publisher-confirms: false
+    virtual-host: /
+    max-concurrent-consumers: 10
+    concurrent-consumers: 1
+    queue:
+      device-log: device-log-queue
+      device-event: device-event-queue
+server:
+  port: 3001

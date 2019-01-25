@@ -1,0 +1,8 @@
+spring:
+  rabbitmq:
+    queue:
+      report: report-queue
+      device-log: device-log-queue
+      device-reg: device-reg-queue
+      device-alarm: device-alarm-queue
+      device-setting: device-setting-queue

@@ -1,0 +1,54 @@
+server:
+  port: 7707
+
+spring:
+  rabbitmq:
+    addresses: rabbitmq:5672
+    username: test
+    password: test
+    publisher-confirms: false
+    virtual-host: /
+    max-concurrent-consumers: 10
+    concurrent-consumers: 1
+    exchange:
+      topic: topicExchange
+    routingkey:
+      report: report-routingkey
+    queue:
+      report: report-queue
+      device-log: device-log-queue
+      device-event: device-event-queue
+      device-alarm: device-alarm-queue
+      device-setting: device-setting-queue
+  redis:
+    host: redis
+    port: 6379
+    pool:
+      max-active: 1024 #连接实例的最大数目
+      max-wait: 10000  #控制一个pool最多有多少个状态为idle
+      max-idle: 200    #等待可用连接的最大时间，单位毫秒
+    timeout: 5000
+
+
+  influx:
+    url: http://influxdb:8086
+    user: admin
+    password: admin
+    report_msg_tags: sn,groupId
+    alarm_msg_tags: bindType,alarmType
+    event_tags: event
+retention_policy: default_policy
+data:
+  property:
+    sn: sn
+    lat: lat
+    lng: lng
+con-platform:
+  config:
+    enabled: true
+    alarms-url: http://con-platform:8080/api/alarms/
+    events-url: http://con-platform:8080/api/device/
+    settings-url: http://con-platform:8080/api/device/
+
+container_auth_url: http://con-platform:8080/api/device/
+device_auth_url:  http://con-platform:8080/api/device/
