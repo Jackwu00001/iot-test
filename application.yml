@@ -9,7 +9,7 @@ logging:
 
 eureka:
   instance:
-    hostname: ${spring.application.name}
+    hostname: registry
     prefer-ip-address: true
   client:
     service-url:
